@@ -4,9 +4,9 @@ import os
 # --- CONFIG ---
 st.set_page_config(page_title="HBD Hope Matsila", page_icon="🕊️", layout="centered")
 
-# --- FILE LOADER ---
+# --- FILE LOADER (GitHub Compatible) ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
-image_filename = "image_1e2067.png" 
+image_filename = "image_1e2067.png"
 image_path = os.path.join(current_dir, image_filename)
 
 # --- SENTIMENTS ---
@@ -18,8 +18,8 @@ sentiments = [
     "I love how honest you are and how quickly you remind me to use my true voice when we speak.",
     "I love that ishhh, it gives me life! 🔥",
     "I love how playful you can be, even though you've got a serious side to you.",
-    "You have a way of bringing out the generosity in me, every time I think of you I wanna give you my all",
-    "Ene nwana, Seasons may shift and time may fade, but I can never lose Hope",
+    "You have a way of bringing out the generosity in me; every time I think of you I wanna give you my all.",
+    "Ene nwana, seasons may shift and time may fade, but I can never lose Hope.",
     "You are a beautiful soul and I know I am blessed with you in my life.",
     "Happy Birthday Muvhuya, you deserve everything good coming your way. ❤️"
 ]
@@ -32,7 +32,6 @@ st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;500&display=swap');
 
-    /* Midnight Background */
     .stApp {
         background-color: #000000;
     }
@@ -41,7 +40,7 @@ st.markdown("""
         font-family: 'Playfair Display', serif;
         font-size: 65px !important;
         font-weight: 700;
-        color: #800000; /* Maroon Header */
+        color: #800000; 
         text-align: center;
         margin-bottom: 0px;
         letter-spacing: -1px;
@@ -59,11 +58,10 @@ st.markdown("""
         opacity: 0.8;
     }
 
-    /* Rounded Sentiment Boxes */
     .sentiment-box {
         font-family: 'Playfair Display', serif;
         padding: 40px;
-        border-radius: 50px; /* Fully rounded/pill shape */
+        border-radius: 50px; 
         font-size: 24px;
         text-align: center;
         line-height: 1.6;
@@ -89,7 +87,6 @@ st.markdown("""
         100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Portrait Frame */
     .portrait-frame {
         border: 12px solid #ffffff;
         border-radius: 10px;
@@ -99,7 +96,6 @@ st.markdown("""
         margin-bottom: 30px;
     }
     
-    /* Elegant Button Style */
     .stButton>button {
         width: 100%;
         background-color: transparent;
@@ -140,7 +136,7 @@ if os.path.exists(image_path):
     st.image(image_path, use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
 else:
-    st.error(f"Portrait not found. Place '{image_filename}' in the folder.")
+    st.error(f"Portrait not found. Make sure '{image_filename}' is in the root of your GitHub repo.")
 
 st.markdown("<br><br>", unsafe_allow_html=True)
 
@@ -153,13 +149,13 @@ for i in range(st.session_state.step + 1):
 if st.session_state.step < len(sentiments) - 1:
     if st.button("KEEP READING ❤️"):
         st.session_state.step += 1
-        if st.session_state.step == len(sentiments) - 1:
-            st.balloons()
+        st.balloons() # This now triggers every time she clicks!
         st.rerun()
 else:
     st.markdown("<h2 style='text-align: center; color: #800000; font-family: Playfair Display; margin-top: 20px;'>Happy Birthday, Muvhuya. 🌹</h2>", unsafe_allow_html=True)
     if st.button("START OVER"):
         st.session_state.step = 0
+        st.balloons()
         st.rerun()
 
 # --- SIDEBAR ---
