@@ -20,7 +20,7 @@ sentiments = [
     "I love how playful you can be, even though you've got a serious side to you.",
     "You have a way of bringing out the generosity in me; every time I think of you I wanna give you my all.",
     "Ene nwana, seasons may shift and time may fade, but through it all I can never lose Hope.",
-    "You are a beautiful soul and I know I am blessed with you in my life.",
+    "You are a beautiful soul and I am blessed with you in my life.",
     "Happy Birthday Muvhuya, you deserve everything good coming your way. ❤️"
 ]
 
@@ -166,6 +166,7 @@ with st.sidebar:
         st.snow()
 
 st.markdown('<p class="footer-text">MADE 4 MISS HOPE</p>', unsafe_allow_html=True)
+
 
 
 
